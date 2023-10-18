@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search for items" (input)="filterBySearchTerm()">
+
+    </div>
+    <div>
+    <label for="category">Filter by Category:</label>
+<select id="category" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+  <option value="All">All Categories</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Clothing">Clothing</option>
+  <option value="Furniture">Furniture</option>
+
+</select>
+
+</div>
+<div>
+    
+        <div id="card" *ngFor="let item of filteredItems">
+          <div class="item">
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+            <p>Price: {{ item.price  }}</p>
+            <h4>Category: {{ item.category  }}</h4>
+          </div>
+        </div>
+     
+</div>
+</div>
